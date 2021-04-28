@@ -59,7 +59,8 @@ class AssetView(MethodView):
                     Candlestick.datetime.between(from_, to),
                 )
             )
-            .order_by(Candlestick.datetime).all()
+            .order_by(Candlestick.datetime)
+            .all()
         )
         candlestick_data = {}
         if candlesticks:

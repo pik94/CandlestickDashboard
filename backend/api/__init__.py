@@ -7,10 +7,7 @@ from typing import Optional
 from flask import Flask
 from flask_migrate import Migrate
 
-from api.utils.misc.helpers import (
-    DATETIME_STRING_FORMAT, get_db_connection_string, set_env,
-    set_logger_settings
-    )
+from api.utils.misc.helpers import DATETIME_STRING_FORMAT, get_db_connection_string, set_env, set_logger_settings
 
 
 def create_app(config: Optional[str] = '', debug: Optional[bool] = False) -> Flask:

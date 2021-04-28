@@ -1,10 +1,7 @@
 from api.endpoints.assets.views import AssetView
 
 from flask import Blueprint
-from api.utils.api_requests import (
-    handle_database_error, handle_error, init_request_metadata,
-    update_request_metadata
-    )
+from api.utils.api_requests import handle_database_error, handle_error, init_request_metadata, update_request_metadata
 from sqlalchemy.exc import SQLAlchemyError
 
 
