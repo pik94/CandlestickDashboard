@@ -4,7 +4,7 @@ To read more about its components, please, check [backend](https://github.com/pi
 [frontend](https://github.com/pik94/CandlestickDashboard/blob/master/frontend/README.md) readme files. 
 
 ## Running
-You need to build and run this service using a docker-compose [file](https://github.com/pik94/CandlestickDashboard/blob/master/docker-compose.yml).
+You need to build and run this service using a docker-compose [file](https://github.com/pik94/CandlestickDashboard/blob/master/docker-compose.yml). Edit this setting [polygon.io](https://polygon.io/) API key and change host ports if there are conflits on your host.
 1. Build:
     ```shell script
     docker-compose build
