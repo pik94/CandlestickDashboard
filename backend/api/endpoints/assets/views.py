@@ -91,7 +91,7 @@ class AssetView(MethodView):
             self.logger.info('Upload new data')
             db.session.commit()
 
-        return 'Created!', 201
+        return 'Created!', 200
 
     def _get_asset(self, ticker: str) -> Asset:
         asset = Asset.query.filter_by(ticker=ticker).first()
