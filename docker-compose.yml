@@ -1,0 +1,55 @@
+version: '2'
+
+services:
+  frontend:
+    container_name: frontend
+    restart: always
+    build: ./frontend
+    environment:
+      - BACKEND_API_URL=http://backend:8000
+      - POLYGON_API_KEY=polygon_api_key
+      - TICKERS=MSFT,AAPL
+    expose:
+      - 8050
+    ports:
+      - "8050:8050"
+    depends_on:
+      - database
+      - backend
+
+  backend:
+    container_name: backend
+    restart: always
+    build: ./backend
+    environment:
+      - DEBUG=True
+      - DB_HOST=database
+      - DB_NAME=financial_data
+      - DB_USER=db_user
+      - DB_PASSWORD=db_password
+      - CRLF_TOKEN=crlf_token
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+  database:
+    container_name: financial_database
+    restart: always
+    image: postgres
+    volumes:
+      - postgres_api_db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=financial_data
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_api_db:
+    driver: local
